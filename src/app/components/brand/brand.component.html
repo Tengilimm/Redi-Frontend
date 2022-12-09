@@ -1,0 +1,28 @@
+<form>
+  <div class="mb-3">
+    <span class="d-block p-2 bg-dark text-white">Brands</span>
+
+    <div
+      *ngIf="dataLoaded == false"
+      class="spinner-border text-primary"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <select
+      (change)="setCurrentBrand()"
+      [(ngModel)]="currentBrand"
+      name="brandSelect"
+      class="form-select"
+      aria-label="Markalar"
+    >
+      <option [ngValue]="allBrand" [selected]="allBrandSelected()">
+        All Brands
+      </option>
+      <option [ngValue]="brand" *ngFor="let brand of brands">
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+</form>

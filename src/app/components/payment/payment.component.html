@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header border-bottom text-center">
+      <span id="logo">Ödeme Sayfası</span>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="left border">
+            <div class="row">
+              <div class="icons">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                <img
+                  src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+                />
+                <img src="https://img.icons8.com/color/48/000000/maestro.png" />
+              </div>
+            </div>
+            <form [formGroup]="creditCardForm">
+              <div *ngIf="isCustomerCreditCards == true">
+                <span for="cardNameSurname">Registered Cards:</span>
+                <select
+                  #customerCreditCardsSelect
+                  (change)="
+                    creditCardsSelected(customerCreditCardsSelect.value)
+                  "
+                  class="form-select"
+                  aria-label="Marka"
+                >
+                  <option value="KartSeciniz">Choose Card</option>
+                  <option
+                    *ngFor="let customerCreditCard of customerCreditCards"
+                    [ngValue]="customerCreditCard.creditCardId"
+                  >
+                    {{ customerCreditCard.creditCardId }}-{{
+                      customerCreditCard.cardNameSurname
+                    }}-{{ customerCreditCard.cardNumber }}-{{
+                      customerCreditCard.cardExpiryDateMonth
+                    }}-{{ customerCreditCard.cardExpiryDateYear }}-{{
+                      customerCreditCard.cardCvv
+                    }}
+                  </option>
+                </select>
+              </div>
+              <div>
+                <span for="cardNameSurname">Name On the Card:</span>
+                <input
+                  type="text"
+                  formControlName="cardNameSurname"
+                  id="cardNameSurname"
+                  name="cardNameSurname"
+                  placeholder="Ad Soyad"
+                  required
+                />
+                <span for="cardNumber">Kart Number:</span>
+                <input
+                  type="text"
+                  formControlName="cardNumber"
+                  id="cardNumber"
+                  name="cardNumber"
+                  placeholder="0000 0000 0000 0000"
+                  pattern="(?=.*[0-9]).{8,}"
+                />
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <span for="cardExpiryDate">Expiration Date:</span>
+                  <input
+                    type="text"
+                    formControlName="cardExpiryDateMonth"
+                    id="cardExpiryDateMonth"
+                    name="cardExpiryDateMonth"
+                    placeholder="Ay"
+                    required
+                  />
+                </div>
+                <div class="col-4">
+                  <br />
+                  <input
+                    type="text"
+                    formControlName="cardExpiryDateYear"
+                    id="cardExpiryDateYear"
+                    name="cardExpiryDateYear"
+                    placeholder="Yıl"
+                    required
+                  />
+                </div>
+                <div class="col-4">
+                  <span for="cardCvv">CVV:</span>
+                  <input
+                    type="text"
+                    formControlName="cardCvv"
+                    id="cardCvv"
+                    name="cardCvv"
+                    placeholder="CVV"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="form-check" *ngIf="useRegisteredCard == false">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="saveCreditCard"
+                [(ngModel)]="saveCreditCard"
+              />
+              <label class="form-check-label" for="saveCreditCard"
+                >Save My Card Information</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="right border">
+            <div class="header">Rental Details</div>
+            <hr />
+            <div class="row lower">
+              <div class="col text-left">Brand:</div>
+              <div class="col text-right">{{ carBrandName }}</div>
+            </div>
+            <div class="row lower">
+              <div class="col text-left">Model:</div>
+              <div class="col text-right">{{ carModelName }}</div>
+            </div>
+            <div class="row lower">
+              <div class="col text-left">Rental Date:</div>
+              <div class="col text-right">
+                {{ carToBeRented.rentDate | date : "dd/MM/yyyy HH:mm" }}
+              </div>
+            </div>
+            <div class="row lower">
+              <div class="col text-left">Delivery Date:</div>
+              <div class="col text-right">
+                {{ carToBeRented.returnDate | date : "dd/MM/yyyy HH:mm" }}
+              </div>
+            </div>
+            <div class="row lower">
+              <div class="col text-left"><b>Amount To Be Paid:</b></div>
+              <div class="col text-right">
+                <b>{{ carToBeRented.amountPaye | currency : "€" }}</b>
+              </div>
+            </div>
+            <div class="row lower"></div>
+            <button (click)="rentalRequest()" class="btn">Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
