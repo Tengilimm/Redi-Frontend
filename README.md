@@ -5,7 +5,7 @@
 
 # <p align="center">RentMax Redi</p>
 
-GoldenCar is a car rental web application. It allows users to view, review and rent vehicles in the system.
+RentMax is a car rental web application. It allows users to view, review and rent vehicles in the system.
 
 **NOTE: The data in the project images are fake data. The data in this picture are sample content prepared to promote the web application.**
 
