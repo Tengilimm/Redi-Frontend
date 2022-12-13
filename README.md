@@ -44,7 +44,7 @@ The project needs a backend to run properly. So first of all, review and install
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/furkanogutcu/goldencar-frontend.git
+https://github.com/Tengilimm/Redi-Frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -70,7 +70,7 @@ The project needs a backend to run properly. So first of all, review and install
 
 ## Associated Project
 
-The backend of this project [GoldenCar-backend](https://github.com/furkanogutcu/GoldenCar)
+The backend of this project [RentMaxRedi-backend](https://github.com/Tengilimm/Redi-Backend)
 
 ## Contributions
 
