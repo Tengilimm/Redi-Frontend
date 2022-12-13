@@ -37,9 +37,9 @@ The project needs a backend to run properly. So first of all, review and install
 
 ### Installation
 
-1. Clone the repo
+   1. Clone the repo
    ```sh
-https://github.com/Tengilimm/Redi-Frontend.git
+      https://github.com/Tengilimm/Redi-Frontend.git
    ```
 2. Install NPM packages
    ```sh
