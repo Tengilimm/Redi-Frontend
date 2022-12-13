@@ -3,7 +3,7 @@
 <a href="https://github.com/Tengilimm/Redi-Backend">here for backend</a>
 
 
-# <p align="center">GoldenCar</p>
+# <p align="center">RentMax Redi</p>
 
 GoldenCar is a car rental web application. It allows users to view, review and rent vehicles in the system.
 
